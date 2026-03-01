@@ -1,0 +1,49 @@
+MUST BE UNSPARSED IMG. USE SIMG2IMG ON IT FIRST. ENJOY!
+
+
+
+Usage:
+# Filesystem info (superblock details)
+python fuck_f2fs.py system.img info
+
+# List root directory
+python fuck_f2fs.py system.img ls /
+
+# List specific path
+python fuck_f2fs.py system.img ls /system/app
+
+# Directory tree (default 3 levels deep)
+python fuck_f2fs.py system.img tree /system/etc 4
+
+# Read a text file
+python fuck_f2fs.py system.img cat /system/build.prop
+
+# Extract a single file
+python fuck_f2fs.py system.img extract /system/framework/services.jar
+
+# Extract an entire directory recursively
+python fuck_f2fs.py system.img extractdir /system/app ./extracted_apps
+
+# Find files by pattern
+python fuck_f2fs.py system.img find "*.apk"
+python fuck_f2fs.py system.img find "build.prop"
+
+
+
+DEBUGGING COMMANDS TO FIX STUFF SINCE I WON'T DO IT FOR YOU:
+
+
+# Check checkpoint was parsed correctly
+python fuck_f2fs.py system.img cp
+
+# Debug the root inode NAT lookup
+python fuck_f2fs.py system.img debug
+
+# Debug a specific path
+python fuck_f2fs.py system.img debug /system/build.prop
+
+# Raw hex dump of a block
+python fuck_f2fs.py system.img hexdump 12345
+
+# Individual node checking
+python fuck_f2fs.py system.img debug 27
